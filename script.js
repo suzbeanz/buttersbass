@@ -1,9 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const images = document.querySelectorAll('.gallery img');
-    images.forEach(img => {
+    const gallery = document.getElementById('gallery');
+    const imageNames = ['dog1.jpg', 'dog2.jpg', 'dog3.jpg']; // Add more image filenames here
+
+    imageNames.forEach(name => {
+        const img = document.createElement('img');
+        img.src = `Images/${name}`;
+        img.alt = name;
         img.addEventListener('click', () => {
-            const src = img.getAttribute('src');
-            window.open(src, '_blank');
+            window.open(img.src, '_blank');
         });
+        gallery.appendChild(img);
     });
 });
